@@ -782,7 +782,12 @@ export class MemStorage implements IStorage {
 
   async createLocation(insertLocation: InsertLocation): Promise<Location> {
     const id = randomUUID();
-    const location: Location = { ...insertLocation, id };
+    const location: Location = { 
+      ...insertLocation, 
+      id,
+      state: insertLocation.state || "Andhra Pradesh",
+      district: insertLocation.district || "Anantapur"
+    };
     this.locations.set(id, location);
     return location;
   }
@@ -825,7 +830,11 @@ export class MemStorage implements IStorage {
 
   async createCategory(insertCategory: InsertCategory): Promise<Category> {
     const id = randomUUID();
-    const category: Category = { ...insertCategory, id };
+    const category: Category = { 
+      ...insertCategory, 
+      id,
+      description: insertCategory.description ?? null
+    };
     this.categories.set(id, category);
     return category;
   }
