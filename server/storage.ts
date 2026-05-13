@@ -8,7 +8,7 @@ import {
 } from "@shared/schema";
 import { randomUUID } from "crypto";
 import { db } from "./db";
-import { eq } from "drizzle-orm";
+import { eq, sql } from "drizzle-orm";
 import mongoose from "mongoose";
 import { ProductModel, LocationModel, BookingModel, UserModel, CategoryModel } from "./models";
 
